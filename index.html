@@ -147,13 +147,7 @@ You see a box sitting on a shelf, and go over to inspect it. It&#39;s locked.
 
 (if: $hasPaintingKey is false) [The key from the book doesn&#39;t fit...you need to find the right key. [[Check out the painting -&gt;painting]]] 
 
-(else-if: $hasPaintingKey is true) [You put the key in the lock and it fits! You open the box and find a cipher sheet. &lt;img src = &quot;cipher.png&quot; width=&quot;400&quot; height=&quot;600&quot;&gt; (set: $hasCipher to true) [[Investigate old photographs on the table -&gt;photos]] [[]]]</tw-passagedata><tw-passagedata pid="12" name="photos" tags="" position="800,1100" size="100,100">=&gt;&lt;=
-(if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
-(set: $time to $time - 1)
-You try the key from the painting in the lock, and you hear a click, and the lock comes off. 
-
-[[Examine the photos more -&gt;examine photos]]
-</tw-passagedata><tw-passagedata pid="13" name="lights" tags="" position="1075,850" size="100,100">=&gt;&lt;=
+(else-if: $hasPaintingKey is true) [You put the key in the lock and it fits! You open the box and find a cipher sheet. &lt;img src = &quot;cipher.png&quot; width=&quot;400&quot; height=&quot;600&quot;&gt; (set: $hasCipher to true) [[Investigate old photographs on the table -&gt;examine photos]] ]</tw-passagedata><tw-passagedata pid="12" name="lights" tags="" position="1075,850" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 (set: $time to $time - 2)
 You flip the light switch and the room darkens. But suddenly, you see some sort of glow in the dark writing on the painting that reveals something that was hidden before.
@@ -168,7 +162,7 @@ You now know which button to push!
 
 [[Push 1234 button -&gt;1234]] 
 [[Push 5678 button -&gt;5678]] 
-[[Push 9100 button -&gt;9100]]</tw-passagedata><tw-passagedata pid="14" name="9100" tags="" position="650,750" size="100,100">=&gt;&lt;=
+[[Push 9100 button -&gt;9100]]</tw-passagedata><tw-passagedata pid="13" name="9100" tags="" position="650,750" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 (set: $time to $time - 1)
 When you press the 9100 button, a secret drawer opens up beneath the painting, and a key is revealed! You take the key.
@@ -177,29 +171,29 @@ When you press the 9100 button, a secret drawer opens up beneath the painting, a
 
 (if: $hasBookKey is false)[[[Look closer at the books -&gt;books]]]
 
-[[Look at a box on a shelf -&gt;box]]</tw-passagedata><tw-passagedata pid="15" name="5678" tags="" position="1000,625" size="100,100">=&gt;&lt;=
+[[Look at a box on a shelf -&gt;box]]</tw-passagedata><tw-passagedata pid="14" name="5678" tags="" position="1000,625" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 You press the 5678 button, but noting happens. You have to hurry--you&#39;re running out of time!
 (set: $time to $time - 5)
-[[Go back -&gt;painting]]</tw-passagedata><tw-passagedata pid="16" name="1234" tags="" position="800,925" size="100,100">=&gt;&lt;=
+[[Go back -&gt;painting]]</tw-passagedata><tw-passagedata pid="15" name="1234" tags="" position="800,925" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 You press the 1234 button, but can only hear the clock ticking. You have to hurry--you&#39;re running out of time!
 (set: $time to $time - 5)
-[[Go back -&gt;painting]]</tw-passagedata><tw-passagedata pid="17" name="door" tags="" position="1200,1200" size="100,100">=&gt;&lt;=
+[[Go back -&gt;painting]]</tw-passagedata><tw-passagedata pid="16" name="door" tags="" position="1200,1200" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 (set: $time to $time - 1)
 You frantically run to the door and twist the handle...
 
 (live: 2s) [The door opens with the key from the book!]
 (live: 4s) [You step through the door, and find yourself in another room that feels almost identical to the room you were just in.]
-(live: 6s)[[[Look at a newspaper on the table-&gt;newspaper]] OR [[Give up]]]</tw-passagedata><tw-passagedata pid="18" name="examine photos" tags="" position="975,1150" size="100,100">=&gt;&lt;=
+(live: 6s)[[[Look at a newspaper on the table-&gt;newspaper]] OR [[Give up]]]</tw-passagedata><tw-passagedata pid="17" name="examine photos" tags="" position="850,1125" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 (set: $time to $time - 3)
 $friendName says &quot;Hey I think these photos are of us from the agency! I remember taking this one when we solved our first case together! That was when we caught the guy who stole the Duchess&#39; necklace.&quot; 
 
 You remember that case because you both thought that it was definitely her jealous friend, but it was actually her sister, who you didn&#39;t expect at first.
 
-(live: 4s)[(if: $hasBookKey is true)[[[Try to open the door -&gt;door]]]]</tw-passagedata><tw-passagedata pid="19" name="hal.tracks" tags="" position="225,450" size="100,100">bgmusic: backgroundmusic.mp3</tw-passagedata><tw-passagedata pid="20" name="Startup variables" tags="startup" position="100,400" size="100,100">{
+(live: 4s)[(if: $hasBookKey is true)[[[Try to open the door -&gt;door]]]]</tw-passagedata><tw-passagedata pid="18" name="hal.tracks" tags="" position="225,450" size="100,100">bgmusic: backgroundmusic.mp3</tw-passagedata><tw-passagedata pid="19" name="Startup variables" tags="startup" position="100,400" size="100,100">{
 (track: &#39;bgmusic&#39;, &#39;loop&#39;, true)
 (track: &#39;bgmusic&#39;, &#39;playwhenpossible&#39;)
 }
@@ -207,10 +201,10 @@ You remember that case because you both thought that it was definitely her jealo
 (set: $hasBookKey to false)
 (set: $hasPaintingKey to false)
 (set: $hasCipher to false)
-(set: $time to 30)</tw-passagedata><tw-passagedata pid="21" name="Header" tags="header" position="100,525" size="100,100">(if: (passage:)&#39;s name is not &quot;Home Page&quot; and (passage:)&#39;s name is not &quot;Begin&quot; and (passage:)&#39;s name is not &quot;you&quot; and (passage:)&#39;s name is not &quot;friend&quot;)[
+(set: $time to 30)</tw-passagedata><tw-passagedata pid="20" name="Header" tags="header" position="100,525" size="100,100">(if: (passage:)&#39;s name is not &quot;Home Page&quot; and (passage:)&#39;s name is not &quot;Begin&quot; and (passage:)&#39;s name is not &quot;you&quot; and (passage:)&#39;s name is not &quot;friend&quot;)[
 
 (align:&quot;==&gt;&quot;)[(b4r:&quot;dotted&quot;)+(b4r-colour:purple)[
-Time left: $time]]]</tw-passagedata><tw-passagedata pid="22" name="newspaper" tags="" position="1025,1325" size="100,100">=&gt;&lt;=
+Time left: $time]]]</tw-passagedata><tw-passagedata pid="21" name="newspaper" tags="" position="1025,1325" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 You look on the table in the new room, and see a strange code.
 $friendName exclaims &quot;Wait these symbols match the cipher! We can decode it with that!&quot;
@@ -224,22 +218,22 @@ $friendName exclaims &quot;Wait these symbols match the cipher! We can decode it
 
 
 
-</tw-passagedata><tw-passagedata pid="23" name="you" tags="" position="500,400" size="100,100">=&gt;&lt;=
+</tw-passagedata><tw-passagedata pid="22" name="you" tags="" position="500,400" size="100,100">=&gt;&lt;=
 You try to think back to all that you remember about yourself. It&#39;s all a bit fuzzy, but you recall living in a modest apartment with your good friend $friendName, and working at a small detective agency together. 
 
-[[Look at the bookshelf]]</tw-passagedata><tw-passagedata pid="24" name="friend" tags="" position="700,400" size="100,100">=&gt;&lt;=
+[[Look at the bookshelf]]</tw-passagedata><tw-passagedata pid="23" name="friend" tags="" position="700,400" size="100,100">=&gt;&lt;=
 $friendName says &quot;I think we are stuck in here, I tried to open the door, but it won&#39;t open. I think this might be because we tried to win the best detective contest, and Sherlock Holmes wasn&#39;t too happy about it.&quot; 
 
-[[Look at the bookshelf]]</tw-passagedata><tw-passagedata pid="25" name="Accept" tags="" position="900,1450" size="100,100">=&gt;&lt;=
-You look at $friendName and smile. You should have known this was some sort of game that Sherlock put together. You and $friendName both tell Sherlock that you have always wanted to be a part of the infamous detectives&#39; team. You, $friendName , and Sherlock are going to make a great team!</tw-passagedata><tw-passagedata pid="26" name="Deny" tags="" position="1125,1450" size="100,100">=&gt;&lt;=
-You look at $friendName and can tell they aren&#39;t quite sure what to say. You have always been a team of just the two of you, and decide that you want to keep it that way. You tell Sherlock that you want to stay in partnership with $friendName because you love working together at your smalll agency. You and $friendName continue to solve cases just the two of you, and are still the best of friends to this day!</tw-passagedata><tw-passagedata pid="27" name="Lose" tags="" position="200,1000" size="100,100">=&gt;&lt;=
+[[Look at the bookshelf]]</tw-passagedata><tw-passagedata pid="24" name="Accept" tags="" position="900,1450" size="100,100">=&gt;&lt;=
+You look at $friendName and smile. You should have known this was some sort of game that Sherlock put together. You and $friendName both tell Sherlock that you have always wanted to be a part of the infamous detectives&#39; team. You, $friendName , and Sherlock are going to make a great team!</tw-passagedata><tw-passagedata pid="25" name="Deny" tags="" position="1125,1450" size="100,100">=&gt;&lt;=
+You look at $friendName and can tell they aren&#39;t quite sure what to say. You have always been a team of just the two of you, and decide that you want to keep it that way. You tell Sherlock that you want to stay in partnership with $friendName because you love working together at your smalll agency. You and $friendName continue to solve cases just the two of you, and are still the best of friends to this day!</tw-passagedata><tw-passagedata pid="26" name="Lose" tags="" position="200,1000" size="100,100">=&gt;&lt;=
 An alarm rings suddenly and you hear a voice say &quot;You&#39;re out of time&quot;.
 
 You realize that you took more than 30 minutes to solve these puzzles, but what now??
 
 (live: 4s)[A figure emerges out of the shadows, and suddenly you realize it is Sherlock Holmes himself. He looks smug as he states &quot;This proves that I am still the best detective!!&quot;]
 
-(live: 7s)[You and $friendName look at each other in disappointment, and realize that you failed. Maybe being a detective isn&#39;t your calling after all...]</tw-passagedata><tw-passagedata pid="28" name="Give up" tags="" position="1300,1450" size="100,100">=&gt;&lt;=
+(live: 7s)[You and $friendName look at each other in disappointment, and realize that you failed. Maybe being a detective isn&#39;t your calling after all...]</tw-passagedata><tw-passagedata pid="27" name="Give up" tags="" position="1300,1450" size="100,100">=&gt;&lt;=
 (if: $time &lt; 1)[(go-to: &quot;Lose&quot;)]
 You have decided to give up with these silly puzzles. You are stuck in this new room, but at least you have $friendName by your side...
 
